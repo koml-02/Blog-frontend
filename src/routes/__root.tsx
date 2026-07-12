@@ -17,19 +17,27 @@ import { Footer } from "../components/Footer";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-4">
+      {/* Ambient glow */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-96 -translate-x-1/2 rounded-full blur-3xl"
+        style={{ background: "oklch(0.78 0.13 200 / 12%)" }}
+      />
+      <div className="relative max-w-md rounded-3xl glass-strong p-10 text-center">
+        <p className="font-display text-8xl font-bold text-gradient">404</p>
+        <div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-primary/50" />
+        <h2 className="mt-6 font-display text-xl font-semibold text-foreground">
+          This page drifted away
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+          Like morning fog on the lake, the page you're looking for has quietly vanished.
         </p>
-        <div className="mt-6">
+        <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
           >
-            Go home
+            Return Home
           </Link>
         </div>
       </div>
