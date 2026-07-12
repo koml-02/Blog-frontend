@@ -99,10 +99,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Every idea deserves a beautiful place to grow. Write blogs in Markdown in a peaceful, distraction-free environment.",
+          "A luxury cinematic writing platform. Write blogs in Markdown in a peaceful, distraction-free environment.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Luminae — Write Without Fear" },
+      { name: "twitter:description", content: "A luxury cinematic writing platform. Write blogs in Markdown in a peaceful, distraction-free environment." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f34b355d-68b6-40f9-98c9-c2de623da0ac/id-preview-184379ff--b70952fe-a184-4871-b90e-99489226bcd8.lovable.app-1783855157537.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f34b355d-68b6-40f9-98c9-c2de623da0ac/id-preview-184379ff--b70952fe-a184-4871-b90e-99489226bcd8.lovable.app-1783855157537.png" },
     ],
     links: [
       {
