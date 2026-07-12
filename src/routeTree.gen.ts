@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as LoginRouteImport } from './routes/login'
@@ -19,6 +20,11 @@ import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
 import { Route as EditIdRouteImport } from './routes/edit.$id'
 import { Route as BlogsIdRouteImport } from './routes/blogs.$id'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
   '/register': typeof RegisterRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$id': typeof BlogsIdRoute
   '/edit/$id': typeof EditIdRoute
   '/blogs/': typeof BlogsIndexRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
   '/register': typeof RegisterRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$id': typeof BlogsIdRoute
   '/edit/$id': typeof EditIdRoute
   '/blogs': typeof BlogsIndexRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRoute
   '/register': typeof RegisterRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blogs/$id': typeof BlogsIdRoute
   '/edit/$id': typeof EditIdRoute
   '/blogs/': typeof BlogsIndexRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/profile'
     | '/register'
+    | '/sitemap.xml'
     | '/blogs/$id'
     | '/edit/$id'
     | '/blogs/'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/profile'
     | '/register'
+    | '/sitemap.xml'
     | '/blogs/$id'
     | '/edit/$id'
     | '/blogs'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/profile'
     | '/register'
+    | '/sitemap.xml'
     | '/blogs/$id'
     | '/edit/$id'
     | '/blogs/'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   ProfileRoute: typeof ProfileRoute
   RegisterRoute: typeof RegisterRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogsIdRoute: typeof BlogsIdRoute
   EditIdRoute: typeof EditIdRoute
   BlogsIndexRoute: typeof BlogsIndexRoute
@@ -149,6 +162,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   ProfileRoute: ProfileRoute,
   RegisterRoute: RegisterRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogsIdRoute: BlogsIdRoute,
   EditIdRoute: EditIdRoute,
   BlogsIndexRoute: BlogsIndexRoute,
